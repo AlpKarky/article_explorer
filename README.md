@@ -29,7 +29,8 @@ Make sure you have the following tools installed on your machine:
 ### Running the App
 
 To run the app on a connected device or emulator, use the following command:
-flutter run
+
+`flutter run`
 
 ### Running Tests
 
