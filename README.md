@@ -1,3 +1,21 @@
+# Article Explorer
+
+Article Explorer is a Flutter app that allows users to explore and read articles on various topics.
+
+## Getting Started
+
+Follow the steps below to set up and run the Article Explorer app on your local machine.
+
+### Prerequisites
+
+Make sure you have the following tools installed on your machine:
+
+- [Flutter SDK](https://flutter.dev/docs/get-started/install)
+
+### Installation
+
+1. Clone the repository:
+
 Article Explorer
 Article Explorer is a Flutter app that allows users to explore and read the most popular articles in New York Times. The app is built in MVVM architecture.
 
