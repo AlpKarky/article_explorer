@@ -1,6 +1,6 @@
 # article_explorer
 
-A new Flutter project.
+A simple flutter app to read the most popular articles from New York Times.
 
 ## Getting Started
 
