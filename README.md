@@ -15,13 +15,16 @@ Make sure you have the following tools installed on your machine:
 ### Installation
 
 1. Clone the repository:
-git clone https://github.com/AlpKarky/article_explorer.git
+   
+`git clone https://github.com/AlpKarky/article_explorer.git`
 
 2. Change into the project directory:
-cd article_explorer
+   
+`cd article_explorer`
 
 3. Install dependencies:
-flutter pub get
+   
+`flutter pub get`
 
 ### Running the App
 
@@ -31,7 +34,8 @@ flutter run
 ### Running Tests
 
 To execute unit tests and generate coverage reports, run the following command:
-flutter test --coverage
+
+`flutter test --coverage`
 
 The coverage report will be generated in the `coverage/lcov.info` file.
 
@@ -41,7 +45,7 @@ To view the coverage report in a more human-readable format, you can use the `lc
 
 After installing `lcov`, you can generate an HTML coverage report using the following command:
 
-genhtml coverage/lcov.info -o coverage/html
+`genhtml coverage/lcov.info -o coverage/html`
 
 Open the generated `index.html` file in the `coverage/html` directory with your web browser to view the coverage report.
 
