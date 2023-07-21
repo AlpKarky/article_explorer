@@ -26,6 +26,14 @@ Make sure you have the following tools installed on your machine:
    
 `flutter pub get`
 
+4. You will need an api key to run the app properly. To setup the key follow the steps below:
+
+    Sign up for an api key on [NY Times](https://developer.nytimes.com/get-started)
+
+    Create a `.env` file in the root of the project
+
+    Paste your api key into the file `API_KEY = YOUR_API_KEY_HERE`   
+
 ### Running the App
 
 To run the app on a connected device or emulator, use the following command:
