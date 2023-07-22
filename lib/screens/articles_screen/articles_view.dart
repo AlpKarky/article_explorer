@@ -15,7 +15,6 @@ class ArticlesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    final double cardHeight = size.height / 8;
     final double imageWidth = size.width / 8;
 
     return Scaffold(
@@ -29,9 +28,7 @@ class ArticlesView extends StatelessWidget {
             () {
               if (_articleViewModel.isLoading) {
                 return const Center(
-                  child: CircularProgressIndicator(
-                    key: Key('progress-indicator-page'),
-                  ),
+                  child: CircularProgressIndicator(),
                 );
               } else if (_articleViewModel.errorMessage.isNotEmpty) {
                 return _ErrorText(articleViewModel: _articleViewModel);
@@ -51,7 +48,6 @@ class ArticlesView extends StatelessWidget {
                                 ),
                               ),
                               child: _ArticleCard(
-                                  cardHeight: cardHeight,
                                   article: article,
                                   imageWidth: imageWidth,
                                   maxLinesInCardText:
@@ -89,13 +85,11 @@ class _ErrorText extends StatelessWidget {
 
 class _ArticleCard extends StatelessWidget {
   const _ArticleCard({
-    required this.cardHeight,
     required this.article,
     required this.imageWidth,
     required this.maxLinesInCardText,
   });
 
-  final double cardHeight;
   final Article article;
   final double imageWidth;
   final int maxLinesInCardText;
@@ -103,44 +97,41 @@ class _ArticleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: SizedBox(
-        height: cardHeight,
-        child: Center(
-          child: Row(
-            children: [
-              Expanded(
-                flex: 10,
-                child: ListTile(
-                  leading: ClipRRect(
-                    borderRadius: AppConstant.allCircularRadiusMedium,
-                    child: CachedNetworkImage(
-                      width: imageWidth,
-                      imageUrl: article.imageUrl,
-                      placeholder: (_, __) =>
-                          const Center(child: CircularProgressIndicator()),
-                      errorWidget: (_, __, ___) =>
-                          const Center(child: Icon(Icons.error)),
-                    ),
+      child: Center(
+        child: Row(
+          children: [
+            Expanded(
+              flex: 10,
+              child: ListTile(
+                leading: ClipRRect(
+                  borderRadius: AppConstant.allCircularRadiusMedium,
+                  child: CachedNetworkImage(
+                    width: imageWidth,
+                    imageUrl: article.imageUrl,
+                    placeholder: (_, __) =>
+                        const Center(child: CircularProgressIndicator()),
+                    errorWidget: (_, __, ___) =>
+                        const Center(child: Icon(Icons.error)),
                   ),
-                  title: Text(article.title),
-                  subtitle: Text(
-                    article.snippet,
-                    maxLines: maxLinesInCardText,
-                    overflow: TextOverflow.ellipsis,
+                ),
+                title: Text(article.title),
+                subtitle: Text(
+                  article.snippet,
+                  maxLines: maxLinesInCardText,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ),
+            const Expanded(
+              child: Center(
+                child: SizedBox(
+                  child: Icon(
+                    Icons.arrow_forward_ios,
                   ),
                 ),
               ),
-              const Expanded(
-                child: Center(
-                  child: SizedBox(
-                    child: Icon(
-                      Icons.arrow_forward_ios,
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
